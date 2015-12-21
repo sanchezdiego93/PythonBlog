@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="post">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaks }}</p>
+        {% if post.published_date %}
+            <div class="date">
+                <p>{{ post.published_date }}, by: <em>{{post.author}}</em></p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
