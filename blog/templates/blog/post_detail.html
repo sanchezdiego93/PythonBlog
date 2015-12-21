@@ -1,12 +1,16 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <div class="post">
-        <h1>{{ post.title }}</h1>
+        <h1>{{ post.title }}<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h1>
         <p>{{ post.text|linebreaks }}</p>
         {% if post.published_date %}
             <div class="date">
                 <p>{{ post.published_date }}, by: <em>{{post.author}}</em></p>
             </div>
-        {% endif %}
+        {% else %}
+        <div class="date">
+            <p>By: <em>{{post.author}}</em></p>
+        </div>
+        {%endif%}
     </div>
 {% endblock %}
