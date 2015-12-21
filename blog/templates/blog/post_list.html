@@ -11,6 +11,10 @@
         <p>By: <em>{{post.author}}</em></p>
         {%endif%}
       </div>
+      <br />
+      {% if forloop.counter != posts|length %}
+      <hr />
+      {%endif%}
     </div>
   {% endfor %}
 {% endblock content %}
